@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_sample/provider/counter.dart';
+import 'package:riverpod_sample/provider/count.dart';
+import 'package:riverpod_sample/provider/up_down_counter.dart';
 
 class ProviderPage extends StatelessWidget {
   const ProviderPage({super.key});
@@ -15,13 +16,7 @@ class ProviderPage extends StatelessWidget {
           alignment: Alignment.center,
           child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: EdgeInsets.all(20),
-                child: Text('Down count'),
-              ),
-              PreviousButton()
-            ],
+            children: [Text('down counter'), DecreaseButton(), UpDownCounter()],
           ),
         ),
       ),
