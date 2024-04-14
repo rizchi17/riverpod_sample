@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_sample/provider/up_down_count.dart';
+import 'package:riverpod_sample/notifire_provider/up_down_count.dart';
 
 class UpDownCounter extends ConsumerWidget {
   const UpDownCounter({super.key});
