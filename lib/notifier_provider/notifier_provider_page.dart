@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_sample/notifire_provider/up_down_counter.dart';
+import 'package:riverpod_sample/notifier_provider/up_down_counter.dart';
 
-class NotifireProviderPage extends StatelessWidget {
-  const NotifireProviderPage({super.key});
+class NotifierProviderPage extends StatelessWidget {
+  const NotifierProviderPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Notifire Provider'),
+        title: const Text('Notifier Provider'),
       ),
       body: SafeArea(
         child: Container(
