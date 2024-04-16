@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_sample/provider/previous_button.dart';
+import 'package:riverpod_sample/notifier_provider/up_down_counter.dart';
 
-class ProviderPage extends StatelessWidget {
-  const ProviderPage({super.key});
+class NotifierProviderPage extends StatelessWidget {
+  const NotifierProviderPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Provider'),
+        title: const Text('Notifier Provider'),
       ),
       body: SafeArea(
         child: Container(
           alignment: Alignment.center,
-          child: const PreviousButton(),
+          child: const UpDownCounter(),
         ),
       ),
     );

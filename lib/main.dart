@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_sample/async_notifier_provider/async_notifier_provider_page.dart';
+import 'package:riverpod_sample/notifier_provider/notifier_provider_page.dart';
 import 'package:riverpod_sample/provider/provider_page.dart';
-
 
 void main() {
   runApp(
@@ -14,9 +15,10 @@ void main() {
 class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-
-    return MaterialApp(
-      home: ProviderPage(),
+    return const MaterialApp(
+      // home: ProviderPage(),
+      // home: NotifierProviderPage(),
+      home: AsyncNotifierProviderPage(),
     );
   }
 }
