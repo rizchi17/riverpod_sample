@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_sample/async_notifier_provider/async_notifier_provider_page.dart';
-import 'package:riverpod_sample/notifier_provider/notifier_provider_page.dart';
-import 'package:riverpod_sample/provider/provider_page.dart';
+import 'package:riverpod_sample/state_notifier_provider/state_notifier_provider_page.dart';
 
 void main() {
   runApp(
@@ -18,7 +16,8 @@ class MyApp extends ConsumerWidget {
     return const MaterialApp(
       // home: ProviderPage(),
       // home: NotifierProviderPage(),
-      home: AsyncNotifierProviderPage(),
+      // home: AsyncNotifierProviderPage(),
+      home: StateNotifierProviderPage(),
     );
   }
 }
