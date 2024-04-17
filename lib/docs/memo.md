@@ -20,6 +20,12 @@ build の返り値が Future型になっている
 ## StateNotifierProvider
 代わりにNotifierProvider推奨
 
+## FutureProvider
+非同期データの取得に使用して、データが使用可能（取得完了）になるとWidgetを更新する
+
+ユーザーの操作の後にデータを変更する手段がない
+FutureProvider < AsyncNotifierProvider でより高度なケースに使用
+
 
 ## riverpod_generator
 コード生成
