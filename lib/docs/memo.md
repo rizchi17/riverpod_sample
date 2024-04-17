@@ -17,6 +17,10 @@ Provider名に _$ をつけた形にする
 build の返り値が Future型になっている
 返り値が Future型の場合は Riverpod Generator の方で自動的に AsyncNotifier を生成するようになっている
 
+## StateNotifierProvider
+代わりにNotifierProvider推奨
+
+
 ## riverpod_generator
 コード生成
 `flutter pub run build_runner build --delete-conflicting-outputs`
