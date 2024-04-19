@@ -1,6 +1,9 @@
 # Riverpod
 
 ## provider
+使うメリット
+- 値にアクセスしやすい。グローバルに定義されるので、バケツリレーみたいにページ間で値をやりとりしなくて済む
+- 画面更新の最適化ができる。更新範囲を決めることができるので、描画にかかる時間を減らすことができる
 計算のキャッシュ
 他のプロバイダ（Repository/HttpClientなど）に値を公開
 テストやウィジェットが値をオーバーライドする方法を提供
@@ -61,3 +64,11 @@ notifyListeners()がないと更新されない
 ## riverpod_generator
 コード生成
 `flutter pub run build_runner build --delete-conflicting-outputs`
+
+## ref.read, watch, listen, refresh, invalidate
+ref.refreshとref.invalidateの違い
+ref.refresh = invalidate + read。invalidateした後に最新値を取得したい場合はrefreshを使うと良い
+
+## .select
+String name = ref.watch(userProvider.select((user) => user.name));
+selectを使用することで、不必要なデータの変化でUIの更新をするという無駄な処理を避けることが可能
