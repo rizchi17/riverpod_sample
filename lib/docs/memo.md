@@ -53,6 +53,10 @@ StateProviderに適したシンプルな状態
 
 https://zenn.dev/3ta/articles/fb2329ba2ab1dd
 
+## ChangeNotifierProvider
+非推奨
+notifyListeners()がないと更新されない
+
 
 ## riverpod_generator
 コード生成
