@@ -10,7 +10,7 @@ class StateNotifierProviderPage extends ConsumerWidget {
     List<Todo> todos = ref.watch(todosProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('StateNotifier Screen'),
+        title: const Text('State Notifier'),
       ),
       body: ListView(
         children: [
