@@ -9,7 +9,7 @@
 
 - 値を代入することはできない → つまり値を監視して、適当な処理をした値を返す用途として使える
 
-## notifierProvider
+## NotifierProvider
 Provider名に _$ をつけた形にする
 管理している状態には state でアクセスすることができる
 
@@ -31,6 +31,27 @@ FutureProvider < AsyncNotifierProvider でより高度なケースに使用
 「断続的なデータ取得」において、「非同期操作」が可能
 Streamの場合は async ではなく async*、return ではなく yield を使用する
 変更が確認されたらwidgetが更新される
+
+## StateProvider
+Providerのnotifierを参照し、直接値を変更する。（変数チック）
+
+簡単な値向き
+使えるけどレガシー
+StateProvider => Notifier
+StateNotifier => Notifierまたは（非同期処理を含むなら）AsyncNotifier
+
+StateProviderに適したシンプルな状態
+- 列挙型（enum）、例えばフィルタの種類など
+- 文字列型、例えばテキストフィールドの入力内容など
+- bool 型、例えばチェックボックスの値など
+- 数値型、例えばページネーションのページ数やフォームの年齢など
+
+使うべきでないケースとして
+- ステートの算出に何かしらのバリデーション（検証）ロジックが必要
+- ステート自体が複雑なオブジェクトである（カスタムのクラスや List/Map など）
+- ステートを変更するためのロジックが単純な count++ よりは高度である必要がある
+
+https://zenn.dev/3ta/articles/fb2329ba2ab1dd
 
 
 ## riverpod_generator
