@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_sample/future_provider/future_provider_page.dart';
+import 'package:riverpod_sample/stream_provider/stream_provider_page.dart';
 
 void main() {
   runApp(
@@ -18,7 +18,8 @@ class MyApp extends ConsumerWidget {
       // home: NotifierProviderPage(),
       // home: AsyncNotifierProviderPage(),
       // home: StateNotifierProviderPage(),
-      home: FutureProviderPage(),
+      // home: FutureProviderPage(),
+      home: StreamProviderPage(),
     );
   }
 }
