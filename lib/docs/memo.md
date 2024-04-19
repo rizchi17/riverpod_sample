@@ -1,13 +1,13 @@
 # Riverpod
 
 ## provider
-### 用途
-- 計算のキャッシュ
-- 他のプロバイダ（Repository/HttpClientなど）に値を公開
-- テストやウィジェットが値をオーバーライドする方法を提供
-- selectを使用することなく、プロバイダーやウィジェットの再構築を減らすことが可能
+計算のキャッシュ
+他のプロバイダ（Repository/HttpClientなど）に値を公開
+テストやウィジェットが値をオーバーライドする方法を提供
+selectを使用することなく、プロバイダーやウィジェットの再構築を減らすことが可能
+データを受け渡せればOKな時に使う(データは更新されない)
 
-- 値を代入することはできない → つまり値を監視して、適当な処理をした値を返す用途として使える
+値を代入することはできない → つまり値を監視して、適当な処理をした値を返す用途として使える
 
 ## NotifierProvider
 Provider名に _$ をつけた形にする
@@ -52,6 +52,10 @@ StateProviderに適したシンプルな状態
 - ステートを変更するためのロジックが単純な count++ よりは高度である必要がある
 
 https://zenn.dev/3ta/articles/fb2329ba2ab1dd
+
+## ChangeNotifierProvider
+非推奨
+notifyListeners()がないと更新されない
 
 
 ## riverpod_generator
