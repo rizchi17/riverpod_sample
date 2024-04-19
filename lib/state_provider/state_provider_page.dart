@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:riverpod_sample/state_provider/state_provider_controller.dart';
+import 'package:riverpod_sample/state_provider/text_state_provider.dart';
 
 class StateProviderPage extends ConsumerWidget {
   const StateProviderPage({super.key});
