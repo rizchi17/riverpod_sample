@@ -25,6 +25,12 @@ build の返り値が Future型になっている
 
 ユーザーの操作の後にデータを変更する手段がない
 FutureProvider < AsyncNotifierProvider でより高度なケースに使用
+「単一のデータ取得」において、「非同期操作」が可能
+
+## StreamProvider
+「断続的なデータ取得」において、「非同期操作」が可能
+Streamの場合は async ではなく async*、return ではなく yield を使用する
+変更が確認されたらwidgetが更新される
 
 
 ## riverpod_generator
