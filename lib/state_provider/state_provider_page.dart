@@ -17,13 +17,16 @@ class StateProviderPage extends ConsumerWidget {
           child: Column(
         children: [
           Text(text),
-          TextField(
-            controller: textEditingController,
+          Container(
+            decoration: BoxDecoration(border: Border.all(color: Colors.black)),
+            width: 300,
+            child: TextField(
+              controller: textEditingController,
+            ),
           ),
-          OutlinedButton(
+          ElevatedButton(
               onPressed: () {
-                ref.read(textProvider.notifier).state =
-                    textEditingController.text;
+                ref.read(textProvider.notifier).state = textEditingController.text;
               },
               child: const Text('update'))
         ],

@@ -18,8 +18,7 @@ class StateNotifierProviderPage extends ConsumerWidget {
             CheckboxListTile(
               value: todo.completed,
               // When tapping on the todo, change its completed status
-              onChanged: (value) =>
-                  ref.read(todosProvider.notifier).toggle(todo.id),
+              onChanged: (value) => ref.read(todosProvider.notifier).toggle(todo.id),
               title: Row(
                 children: [
                   IconButton(
@@ -37,12 +36,9 @@ class StateNotifierProviderPage extends ConsumerWidget {
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           final int index = todos.length;
+          // ref.read(todosProvider.notifier).stateに直接変更はできない
           ref.read(todosProvider.notifier).addTodo(
-                Todo(
-                  id: index.toString(),
-                  description: 'description$index',
-                  completed: false,
-                ),
+                Todo(id: index.toString(), description: 'description$index', completed: false),
               );
         },
         child: const Icon(Icons.add),

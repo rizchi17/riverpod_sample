@@ -1,16 +1,9 @@
 # riverpod_sample
 
-A new Flutter project.
+Riverpodの理解を深めるための自習用リポジトリ
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 参考:公式ドキュメント他
+- https://zenn.dev/tsukatsuka1783/articles/riverpod_state_notifier
+- https://zenn.dev/chooyan/books/92a0a489f68233/viewer/overview
+- https://zenn.dev/3ta/articles/fb2329ba2ab1dd
+- https://zenn.dev/joo_hashi/books/2c6c47e3d79b63/viewer/1e6101
