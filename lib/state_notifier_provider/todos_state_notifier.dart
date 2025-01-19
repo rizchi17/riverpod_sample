@@ -1,20 +1,19 @@
-// The state of our StateNotifier should be immutable.
-// We could also use packages like Freezed to help with the implementation.
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+// StateNotifier のステート（状態）はイミュータブル（不変）である必要があります。
+// ここは Freezed のようなパッケージを利用してイミュータブルにしても OK です。
 @immutable
 class Todo {
-  const Todo(
-      {required this.id, required this.description, required this.completed});
+  const Todo({required this.id, required this.description, required this.completed});
 
-  // All properties should be `final` on our class.
+  // イミュータブルなクラスのプロパティはすべて `final` にする必要があります。
   final String id;
   final String description;
   final bool completed;
 
-  // Since Todo is immutable, we implement a method that allows cloning the
-  // Todo with slightly different content.
+  // Todo はイミュータブルであり、内容を直接変更できないためコピーを作る必要があります。
+  // これはオブジェクトの各プロパティの内容をコピーして新たな Todo を返すメソッドです。
   Todo copyWith({String? id, String? description, bool? completed}) {
     return Todo(
       id: id ?? this.id,
@@ -24,54 +23,54 @@ class Todo {
   }
 }
 
-// The StateNotifier class that will be passed to our StateNotifierProvider.
-// This class should not expose state outside of its "state" property, which means
-// no public getters/properties!
-// The public methods on this class will be what allow the UI to modify the state.
+// StateNotifierProvider に渡すことになる StateNotifier クラスです。
+// このクラスではステートを `state` プロパティの外に公開しません。
+// つまり、ステートに関しては public なゲッターやプロパティは作らないということです。
+// public メソッドを通じて UI 側にステートの操作を許可します。
 class TodosNotifier extends StateNotifier<List<Todo>> {
-  // We initialize the list of todos to an empty list
+  // Todo リストを空のリストとして初期化します。
   TodosNotifier() : super([]);
 
-  // Let's allow the UI to add todos.
+  // Todo の追加
   void addTodo(Todo todo) {
-    // Since our state is immutable, we are not allowed to do `state.add(todo)`.
-    // Instead, we should create a new list of todos which contains the previous
-    // items and the new one.
-    // Using Dart's spread operator here is helpful!
+    // ステート自体もイミュータブルなため、`state.add(todo)`
+    // のような操作はできません。
+    // 代わりに、既存 Todo と新規 Todo を含む新しいリストを作成します。
+    // Dart のスプレッド演算子を使うと便利ですよ!
     state = [...state, todo];
-    // No need to call "notifyListeners" or anything similar. Calling "state ="
-    // will automatically rebuild the UI when necessary.
+    // `notifyListeners` などのメソッドを呼ぶ必要はありません。
+    // `state =` により必要なときに UI側 に通知が届き、ウィジェットが更新されます。
   }
 
-  // Let's allow removing todos
+  // Todo の削除
   void removeTodo(String todoId) {
-    // Again, our state is immutable. So we're making a new list instead of
-    // changing the existing list.
+    // しつこいですが、ステートはイミュータブルです。
+    // そのため既存リストを変更するのではなく、新しくリストを作成する必要があります。
     state = [
       for (final todo in state)
         if (todo.id != todoId) todo,
     ];
   }
 
-  // Let's mark a todo as completed
+  // Todo の完了ステータスの変更
   void toggle(String todoId) {
     state = [
       for (final todo in state)
-        // we're marking only the matching todo as completed
+        // ID がマッチした Todo のみ、完了ステータスを変更します。
         if (todo.id == todoId)
-          // Once more, since our state is immutable, we need to make a copy
-          // of the todo. We're using our `copyWith` method implemented before
-          // to help with that.
+          // またまたしつこいですが、ステートはイミュータブルなので
+          // Todo クラスに実装した `copyWith` メソッドを使用して
+          // Todo オブジェクトのコピーを作る必要があります。
           todo.copyWith(completed: !todo.completed)
         else
-          // other todos are not modified
+          // ID が一致しない Todo は変更しません。
           todo,
     ];
   }
 }
 
-// Finally, we are using StateNotifierProvider to allow the UI to interact with
-// our TodosNotifier class.
+// 最後に TodosNotifier のインスタンスを値に持つ StateNotifierProvider を作成し、
+// UI 側から Todo リストを操作することを可能にします。
 final todosProvider = StateNotifierProvider<TodosNotifier, List<Todo>>((ref) {
   return TodosNotifier();
 });

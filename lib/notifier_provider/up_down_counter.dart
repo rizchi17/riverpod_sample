@@ -7,7 +7,7 @@ class UpDownCounter extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final upDownCount = ref.watch(upDownCountProvider);
+    final int upDownCount = ref.watch(upDownCountProvider);
 
     return Column(
       children: [

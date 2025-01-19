@@ -37,10 +37,10 @@ class TopPage extends StatelessWidget {
       const ProviderPage(),
       const NotifierProviderPage(),
       const AsyncNotifierProviderPage(),
+      const StateProviderPage(),
       const StateNotifierProviderPage(),
       const FutureProviderPage(),
       const StreamProviderPage(),
-      const StateProviderPage(),
       const ChangeNotifierProviderPage(),
     ];
     return Scaffold(
