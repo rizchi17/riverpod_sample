@@ -1,12 +1,13 @@
 import 'dart:convert';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'future_screen_controller.g.dart';
 
 @riverpod
-Future<String> futureScreenController(FutureScreenControllerRef ref) async {
+Future<String> futureScreenController(Ref ref) async {
   const url = 'https://random-word-api.herokuapp.com/word';
   final response = await http.get(Uri.parse(url));
 

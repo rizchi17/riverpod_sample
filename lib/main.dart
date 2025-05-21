@@ -35,12 +35,12 @@ class TopPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final List<Widget> providers = [
       const ProviderPage(),
+      const FutureProviderPage(),
+      const StreamProviderPage(),
       const NotifierProviderPage(),
       const AsyncNotifierProviderPage(),
       const StateProviderPage(),
       const StateNotifierProviderPage(),
-      const FutureProviderPage(),
-      const StreamProviderPage(),
       const ChangeNotifierProviderPage(),
     ];
     return Scaffold(
